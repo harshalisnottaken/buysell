@@ -42,5 +42,6 @@ dependencies {
     compile group: 'org.codehaus.jackson', name: 'jackson-core-lgpl', version: '1.9.11'
 	compile group: 'org.codehaus.jackson', name: 'jackson-mapper-lgpl', version: '1.9.11'
 	compile group: 'joda-time',name:'joda-time',version:'1.6.1'
+	compile group: 'com.google.guava',name:'guava',version:'17.0' 
 	testCompile SPRING, SPRING_SOURCES, XUNIT
 }
