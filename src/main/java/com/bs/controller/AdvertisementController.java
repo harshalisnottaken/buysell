@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bs.domain.User;
-import com.bs.service.UserRegistrationService;
+import com.bs.domain.Advertisement;
+import com.bs.service.AdvertisementService;
 
 @Controller
 @Slf4j
-public class UserRegistrationController {
+public class AdvertisementController {
 	
 	@Autowired
-	private UserRegistrationService userRegistrationService;
+	private AdvertisementService advertisementService;
 	
-	@RequestMapping(value="/register-user", method = RequestMethod.POST)
+	@RequestMapping(value="/post-add", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> registerUser(@RequestBody User user) {
-		log.info("Registering User details with userName {}", user.getEmailId());
-		userRegistrationService.registerUser(user);
-		return new ResponseEntity<String>("User registered Successfully", HttpStatus.OK);
+	public ResponseEntity<?> registerUser(@RequestBody Advertisement advertisement) {
+		log.info("Posting Add for the user : {}", advertisement.getEmailId());
+		advertisementService.saveAdd(advertisement);
+		return new ResponseEntity<String>("Add posted Successfully", HttpStatus.OK);
 	}
-
+	
 }
