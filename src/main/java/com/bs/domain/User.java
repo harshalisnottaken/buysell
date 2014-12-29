@@ -14,7 +14,7 @@ public class User {
 	private String emailId;
 	private String firstName;
 	private String lastName;
-	private String password; //should be saved in encripted format
+	private String password;
 	private Integer mobileNumber;
 	
 
