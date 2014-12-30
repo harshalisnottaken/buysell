@@ -53,5 +53,10 @@ public class UserRegistrationController {
 		final User user = userRegistrationService.retrieveUser(emailId);
         return (null == user) ? new ResponseEntity<String>("No user found for the userName "+emailId,HttpStatus.NOT_FOUND) : new ResponseEntity<User>(user, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/checkuseralreadyexists", method = RequestMethod.GET)
+	public ResponseEntity<?> chekingExistingUser(@RequestParam(value = "email-id", required=true) String emailId) {
+		return (false == userRegistrationService.checkUserExistsOrNot(emailId)) ? new ResponseEntity<String>("No user found with given emailId", HttpStatus.NOT_FOUND) : new ResponseEntity<User>(HttpStatus.OK);
+	}
 
 }

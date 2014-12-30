@@ -56,4 +56,7 @@ public class UserRegistrationService {
 		return userRepository.findOne(emailId);
 	}
 
+	public boolean checkUserExistsOrNot(String emailId) {
+		return userRepository.exists(emailId);
+	}
 }
