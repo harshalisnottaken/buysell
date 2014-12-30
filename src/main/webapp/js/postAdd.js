@@ -1,14 +1,13 @@
 
 function formController ($scope,$http) {
-   alert($http.defaults.headers.post["Content-Type"]);
     $scope.reset = function() {
         $scope.adv = angular.copy($scope.master);
     };
-    
+    var base_url = window.location.origin;
     $scope.submit = function() {
     	if($scope.adv !== undefined){
         alert("data entered!!!!"+$scope.adv.category);
-$http.post('http://localhost:8086/buysellapp/resources/add/post ', $scope.adv)    
+$http.post(base_url+'/buysellapp/resources/add/post ', $scope.adv)    
 
 
     }
