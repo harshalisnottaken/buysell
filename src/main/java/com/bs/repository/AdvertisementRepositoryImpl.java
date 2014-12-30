@@ -36,5 +36,5 @@ public class AdvertisementRepositoryImpl implements
 		}
 		return adds;
 	}
-
+	
 }

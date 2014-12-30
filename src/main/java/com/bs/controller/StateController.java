@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bs.domain.State;
 import com.bs.service.StateService;
 
 @Controller
@@ -27,8 +28,8 @@ public class StateController {
 	@ResponseBody
 	public ResponseEntity<?> retrieveCities(@RequestParam(value = "state", required=true) String state) {
 		log.info("Retrieving cities for the state : {}", state);
-		List<String> cities = stateService.retrieveCities(state);
-		return ((null == cities) || (cities.isEmpty())) ? new ResponseEntity<String>("No cities found for the state "+state,HttpStatus.NOT_FOUND) : new ResponseEntity<List<String>>(cities, HttpStatus.OK);
+		State response = stateService.retrieveCities(state);
+		return ((null== response) || (null == response.getCities()) || (response.getCities().isEmpty())) ? new ResponseEntity<String>("No cities found for the state "+state,HttpStatus.NOT_FOUND) : new ResponseEntity<List<String>>(response.getCities(), HttpStatus.OK);
 	}
 
 }

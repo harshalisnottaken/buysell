@@ -14,7 +14,7 @@ public class CategoryService {
 	private CategoryRepository categoryRepository;
 
 	public List<String> retrieveSubCategories(String category) {
-		return categoryRepository.findOne(category).getSubCategories();
+		return categoryRepository.findOne(category.toUpperCase()).getSubCategories();
 	}
 
 }

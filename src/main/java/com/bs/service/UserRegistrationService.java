@@ -13,6 +13,7 @@ import sun.misc.BASE64Encoder;
 import com.bs.domain.User;
 import com.bs.repository.UserRepository;
 import com.bs.repository.UserRepositoryCustom;
+import com.bs.util.StringUpperCaseLowerCaseConverter;
 
 @Service
 public class UserRegistrationService {
@@ -24,6 +25,7 @@ public class UserRegistrationService {
 	private UserRepositoryCustom userRepositoryCustom;
 
 	public void registerUser(User user) {
+		user.setEmailId(StringUpperCaseLowerCaseConverter.convertToLowerCase(user.getEmailId()));
 		user.setPassword(makePasswordHash(user.getPassword(), Integer.toString(new SecureRandom().nextInt())));
 		userRepository.save(user);
 	}
@@ -44,6 +46,7 @@ public class UserRegistrationService {
 	    }
 
 	public void updatePassword(User user) {
+		user.setEmailId(StringUpperCaseLowerCaseConverter.convertToLowerCase(user.getEmailId()));
 		user.setPassword(makePasswordHash(user.getPassword(), Integer.toString(new SecureRandom().nextInt())));
 		userRepositoryCustom.updatePassword(user);
 	}
@@ -53,10 +56,10 @@ public class UserRegistrationService {
 	}
 
 	public User retrieveUser(String emailId) {
-		return userRepository.findOne(emailId);
+		return userRepository.findOne(StringUpperCaseLowerCaseConverter.convertToLowerCase(emailId));
 	}
 
 	public boolean checkUserExistsOrNot(String emailId) {
-		return userRepository.exists(emailId);
+		return userRepository.exists(StringUpperCaseLowerCaseConverter.convertToLowerCase(emailId));
 	}
 }
