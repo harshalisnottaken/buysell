@@ -28,7 +28,7 @@ public class AdvertisementController {
 	@RequestMapping(value="/post", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> registerUser(@RequestBody Advertisement advertisement) {
-		log.info("Posting Add for the user : {}", advertisement.getEmailId());
+		log.info("Posting Add for the user : {}", advertisement.getAddKey().getEmailId());
 		advertisementService.saveAdd(advertisement);
 		return new ResponseEntity<String>("Add posted Successfully", HttpStatus.OK);
 	}
