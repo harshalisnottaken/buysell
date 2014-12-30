@@ -39,4 +39,10 @@ public class AdvertisementController {
         return advertisements.isEmpty() ? new ResponseEntity<String>("No adds found for the user "+emailId,HttpStatus.NOT_FOUND) : new ResponseEntity<List<Advertisement>>(advertisements, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/all", method = RequestMethod.POST)
+	public ResponseEntity<?> getAddsForCategoryAndSubcategory(@RequestParam(value = "category", required=true) String category , @RequestParam(value = "sub-category", required=true) String subCategory ) {
+         List<Advertisement> advertisements = advertisementService.getAddsForCategoryAndSubcategory(category,subCategory);
+        return advertisements.isEmpty() ? new ResponseEntity<String>("No adds found for the category "+category+" and sub-category "+subCategory, HttpStatus.NOT_FOUND) : new ResponseEntity<List<Advertisement>>(advertisements, HttpStatus.OK);
+	} 
+	
 }
