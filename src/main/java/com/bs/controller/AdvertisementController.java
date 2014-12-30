@@ -1,6 +1,7 @@
 package com.bs.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,5 +45,12 @@ public class AdvertisementController {
          List<Advertisement> advertisements = advertisementService.getAddsForCategoryAndSubcategory(category,subCategory);
         return advertisements.isEmpty() ? new ResponseEntity<String>("No adds found for the category "+category+" and sub-category "+subCategory, HttpStatus.NOT_FOUND) : new ResponseEntity<List<Advertisement>>(advertisements, HttpStatus.OK);
 	} 
+	
+	@RequestMapping(value="/search", method = RequestMethod.POST)
+	public ResponseEntity<?> searchAllAddsForRequest(@RequestParam(value = "search-req", required=true) String searchReq) {
+         Set<Advertisement> advertisements = advertisementService.searchAllAddsForRequest(searchReq);
+        return advertisements.isEmpty() ? new ResponseEntity<String>("No adds found for the search request "+searchReq, HttpStatus.NOT_FOUND) : new ResponseEntity<Set<Advertisement>>(advertisements, HttpStatus.OK);
+	} 
+	
 	
 }

@@ -1,6 +1,7 @@
 package com.bs.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,11 @@ public class AdvertisementService {
 	public List<Advertisement> getAddsForCategoryAndSubcategory(
 			String category, String subCategory) {
 		return advertisementRepositoryCustom.getAddsForCategoryAndSubcategory(category,subCategory);
+	}
+
+	public Set<Advertisement> searchAllAddsForRequest(String searchReq) {
+		String[] splitStr = searchReq.split("\\s+");
+		return advertisementRepositoryCustom.searchAllAddsForRequest(splitStr);
 	}
 
 }
