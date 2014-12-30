@@ -3,7 +3,6 @@ package com.bs.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
@@ -18,8 +17,6 @@ public class Advertisement {
 	private String photo; //type should be decided
 	private Double price;
 	private Long mobileNumber;
-	private DateTime availableFromTime;
-	private DateTime availableToTime;
 	private String state;
 	private String city;
 }
