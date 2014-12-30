@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var counter = 1;
+	var limit = 8;
+	function addInput(divName) {
+		if (counter == limit) {
+			alert("You have reached the limit of adding " + counter + " inputs");
+		} else {
+			var newdiv = document.createElement('div');
+			newdiv.innerHTML = "Image " + (counter + 1)
+					+ " <br><input type='file' name='file'>";
+			document.getElementById(divName).appendChild(newdiv);
+			counter++;
+		}
+	}
+</script>
+</head>
+<body>
+	<h3>Upload Image</h3>
+	<form method="POST"
+		action="http://localhost:8080/buysellapp/resources/upload/uploadFile"
+		enctype="multipart/form-data">
+		<div id="dynamicInput">
+			Image 1<br> <input type="file" name="file">
+		</div>
+		<input type="button" value="Add another"
+			onClick="addInput('dynamicInput');"><br> <input
+			type="submit" value="Upload">
+	</form>
+</body>
+</html>
