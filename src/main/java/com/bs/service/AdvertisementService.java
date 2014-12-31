@@ -1,7 +1,8 @@
 package com.bs.service;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class AdvertisementService {
 		String emailIdLowerCase = StringUpperCaseLowerCaseConverter.convertToLowerCase(advertisement.getAddKey().getEmailId());
 		AddKey addKey = new AddKey();
 		addKey.setEmailId(emailIdLowerCase);
-		addKey.setTitle(advertisement.getAddKey().getTitle());
+		addKey.setTitle(StringUpperCaseLowerCaseConverter.convertToLowerCase(advertisement.getAddKey().getTitle()));
 		advertisement.setAddKey(addKey);
 		advertisement.setState(StringUpperCaseLowerCaseConverter.convertToUpperCase(advertisement.getState()));
 		advertisement.setCity(StringUpperCaseLowerCaseConverter.convertToUpperCase(advertisement.getCity()));
@@ -48,9 +49,9 @@ public class AdvertisementService {
 		return advertisementRepositoryCustom.getAddsForCategoryAndSubcategory(StringUpperCaseLowerCaseConverter.convertToUpperCase(category),StringUpperCaseLowerCaseConverter.convertToUpperCase(subCategory));
 	}
 
-	public Set<Advertisement> searchAllAddsForRequest(String searchReq) {
-		String[] splitStr = searchReq.split("\\s+");
-		return advertisementRepositoryCustom.searchAllAddsForRequest(splitStr);
+	public List<Advertisement> searchAllAddsForRequest(String searchReq) {
+		String[] splitStr = StringUpperCaseLowerCaseConverter.convertToLowerCase(searchReq).split("\\s+");
+		return advertisementRepositoryCustom.searchAllAddsForRequest(new HashSet<String>(Arrays.asList(splitStr)));
 	}
 
 }

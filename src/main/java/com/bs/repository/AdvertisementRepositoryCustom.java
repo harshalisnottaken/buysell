@@ -1,7 +1,7 @@
 package com.bs.repository;
 
+import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
@@ -12,5 +12,5 @@ public interface AdvertisementRepositoryCustom {
 	public List<Advertisement> getAddsForCategoryAndSubcategory(
 			String category, String subCategory);
 
-	public Set<Advertisement> searchAllAddsForRequest(String[] splitStr);
+	public List<Advertisement> searchAllAddsForRequest(HashSet<String> searchRequest);
 }
