@@ -17,20 +17,6 @@ window.location.href = base_url+"/buysellapp/myAdd.html?emailId="+forceUnicodeEn
 
     }
     }
-    $scope.countries = {
-            'India': {
-                'Maharashtra': ['Pune', 'Mumbai', 'Nagpur', 'Akola'],
-                'Madhya Pradesh': ['Indore', 'Bhopal', 'Jabalpur'],
-                'Rajasthan': ['Jaipur', 'Ajmer', 'Jodhpur']
-           }
-    }
-    
-    $scope.categories = {
-            
-                'Electronics': ['Laptop', 'Mobile', 'Tablet'],
-                'Home Needs': ['OTG', 'Rice cooker', 'Roti Maker'],
-                'Jobs': ['WorkFromHome', 'BPO', 'IT']
-           }
     
     $scope.reset();
     $scope.submit();
