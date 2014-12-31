@@ -15,17 +15,20 @@ Released for free under a Creative Commons Attribution 3.0 License
 <script type="text/javascript" src="js/angular1.2.min.js"></script>
 <script type="text/javascript" src="js/postAdd.js"></script>
 
+
+
+ 
 <!-- CuFon ends -->
 </head>
 <body>
 <div class="main">
   <div class="header">
     <div class="header_resize">
-      <div class="logo"><h1><a href="index.html">FantasyLand<br /><small>put your slogan here</small></a></h1></div>
+      <div class="logo"><h1><a href="index.html">Buy Sell<br /><small>Your search ends here</small></a></h1></div>
       <div class="menu_nav">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="support.html">Support</a></li>
+          <li class="active"><a href="showadv.html">Show Advertisement</a></li>
           <li><a href="postAdv.html">Post Advertisement</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact Us</a></li>
@@ -53,10 +56,15 @@ Released for free under a Creative Commons Attribution 3.0 License
 <tr>
 <td>Title</td>
 <td><input type=text name=title id="title" size="30" ng-model="adv.addKey.title"/></td>
+
 </tr>
 
-
-<tr>
+<!-- <tr><td>Category</td><td> <select id="category" ng-model="adv.category" ng-options="category for (category, subCategory) in categories">
+                    <option value=''>Select</option>
+                </select></td></tr>
+<tr><td>Sub Category</td><td><select id="subCategory"  ng-model="adv.subCategory" ng-options="subCategory for subCategory in adv.category"><option value=''>Select</option></select></td></tr>
+ -->
+ <tr>
 <td>Category</td>
 <td><select name="category" ng-model="adv.category">
 <option value="-1" selected>select..</option>
@@ -90,6 +98,12 @@ Released for free under a Creative Commons Attribution 3.0 License
 <td><input type="button" value="Upload" name="upload"/></td>
 </tr>
 
+<!-- <tr><td>Country</td><td> <select id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                    <option value=''>Select</option>
+                </select></td></tr>
+<tr><td>State</td><td><select id="state"  ng-model="adv.state" ng-options="state for (state,city) in states"><option value=''>Select</option></select></td></tr>
+<tr><td>City</td><td> <select id="city"  ng-model="adv.city" ng-options="city for city in adv.state"><option value=''>Select</option></select>        </td></tr> -->
+ 
 <tr>
 <td>State</td>
 <td><select name="state" ng-model="adv.state">
@@ -128,7 +142,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 
 <tr>
 <td>E-mail.</td>
-<td><input type="text" name="email"id="email" size="30" ng-model="adv.addKey.emailId"/></td>
+<td><input type="text" name="email"id="email" size="30" ng-model="adv.addKey.emailId" /></td>
 </tr>
 
 <tr>

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Design by http://www.bluewebtemplates.com
+Released for free under a Creative Commons Attribution 3.0 License
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>BuySellApp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/georgia.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/angular1.2.min.js"></script>
+<script type="text/javascript" src="js/myAdd.js"></script>
+<!-- CuFon ends -->
+</head>
+<body>
+	<div class="main">
+
+		<div class="header">
+			<div class="header_resize">
+				<div class="logo">
+					<h1>
+						<a href="index.html">Buy Sell<br />
+						<small>Your search ends here</small></a>
+					</h1>
+				</div>
+				<div class="menu_nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="showadv.html">Show
+								Advertisement</a></li>
+						<li><a href="postAdv.html">Post Advertisement</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+					<div class="clr"></div>
+				</div>
+				<div class="clr"></div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="content_resize">
+				<div class="mainbar">
+
+<div><h2>My Adds</h2></div>
+					<div ng-app="" ng-controller="formController">
+						
+	
+						<ul>
+							<li ng-repeat="add in adds">{{ add.addKey.title }} </br> {{add.category}} </br>{{ add.subCategory}} </br>
+								</br>{{ add.price}}
+								</br>{{ add.description}}
+								</br>{{ add.emailId}}
+								</br>{{ add.mobileNumber}}
+								</br>{{ add.state}}
+								</br>{{ add.city}}
+							</li>
+						</ul>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="fbg">
+
+			<div class="footer">
+				<div class="footer_resize">
+					<p class="lf">
+						&copy; Copyright MyWebSite. Designed by Blue <a
+							href="http://www.bluewebtemplates.com">Website Templates</a>
+					</p>
+					<ul class="fmenu">
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="support.html">Support</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="contact.html">Contacts</a></li>
+					</ul>
+					<div class="clr"></div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

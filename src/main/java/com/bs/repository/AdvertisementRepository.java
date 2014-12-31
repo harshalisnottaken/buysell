@@ -13,7 +13,7 @@ import com.sun.xml.internal.bind.v2.model.core.ID;
 @Repository
 public interface AdvertisementRepository extends CrudRepository<Advertisement, String> {
 
-	@Query("{'emailId' : {$in: ?0}}")
+	@Query("{'_id.emailId' : {$in: ?0}}")
 	public List<Advertisement> findAll(List<String> emailId);
 	
 	@Query("{'_id' : {$in: ?0}}")
