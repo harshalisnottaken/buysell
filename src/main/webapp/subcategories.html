@@ -5,6 +5,8 @@ Released for free under a Creative Commons Attribution 3.0 License
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+
 <title>Template</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -12,7 +14,28 @@ Released for free under a Creative Commons Attribution 3.0 License
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/georgia.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/angular1.2.min.js"></script>
 <script type="text/javascript" src="js/subCategory.js"></script>
+<script>
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+} 
+var tech = getUrlParameter('id');
+function categoryController($scope,$http) {
+    $http.post("http://localhost:8080/buysellapp/resources/category/sub-categories?category="+tech)
+    .success(function(response) {$scope.subcategorys = response;});
+}
+</script>
 <!-- CuFon ends -->
 <style>
 table.categoriesTable tr td{
@@ -53,11 +76,15 @@ width: 116px;
     <div class="content_resize">
       <div class="mainbar">
       
-       <div ng-app="" ng-controller="subCategoryController">
-             <form action="#" name="PostAdvertisement" onvalidate>
-             
-             </form>
-             </div>
+      <div ng-app="" ng-controller="categoryController"> 
+
+<ul>
+  <li ng-repeat="subcategory in subcategorys">
+    {{subcategory}}
+  </li>
+</ul>
+
+</div>
       	<div class="search_home">
        
        </div>
