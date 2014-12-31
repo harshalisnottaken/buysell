@@ -23,8 +23,8 @@ Released for free under a Creative Commons Attribution 3.0 License
 			<div class="header_resize">
 				<div class="logo">
 					<h1>
-						<a href="index.html">Buy Sell<br />
-						<small>Your search ends here</small></a>
+						<a href="index.html">Buy Sell<br /> <small>Your
+								search ends here</small></a>
 					</h1>
 				</div>
 				<div class="menu_nav">
@@ -58,12 +58,37 @@ Released for free under a Creative Commons Attribution 3.0 License
 							</div>
 						</div>
 
-						<ul>
+						<!-- <ul>
 							<li ng-repeat="add in adds">{{ add.addKey.title }} </br>{{
 								add.addKey.emailId }}
 							</li>
+						</ul> -->
+
+						<!-- <table>
+							<li ng-repeat="add in adds">
+								<tr>
+									<td><image
+											src="C:/Users/Public/Pictures/Sample Pictures/Tulips.jpg."
+											width="60">
+										</imag></td>
+									<td>{{ add.addKey.title }} <br> {{add.category}} </r>{{
+										add.subCategory}} <br>
+									<br>
+									<br></td>
+									<td>{{ add.price}}</br>{{ add.description}}</br>{{
+										add.addKey.emailId}}</br>{{ add.mobileNumber}}</br>{{ add.state}}</br>{{
+										add.city}}
+									</td>
+									</br>
+									</br>
+							</li>
+							</tr>
+						</table> -->
+						<ul>
+							<li ng-repeat="add in adds">{{ add.addKey.title }} </br> {{add.category}} </br>{{ add.subCategory}} </br>{{ add.price}}</br>{{ add.description}}</br>{{ add.addKey.emailId}}</br>{{ add.mobileNumber}}</br>{{ add.state}}</br>{{ add.city}}
+							</li>
 						</ul>
-					
+
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-function getUrlParameter(sParam)
+ function getUrlParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
@@ -11,14 +11,12 @@ function getUrlParameter(sParam)
         }
     }
 } 
-
 var tech = getUrlParameter('id');
-alert(tech);
-alert();
-function formController($scope,$http) {
-	alert(xxx);
-	  $http.get(base_url+"/buysellapp/category/sub-categories?category="+tech)
-	  .success(function(response) {$scope.subCategory = response;});
-	}
-
-angular.module('app', []).controller('ContactController', formController)
+function categoryController($scope,$http) {
+	var base_url = window.location.origin;
+    $http.post(base_url+"/buysellapp/resources/category/sub-categories?category="+tech)
+    
+    .success(function(response) {$scope.subcategorys = response;});
+    
+    $scope.category=tech;
+} 

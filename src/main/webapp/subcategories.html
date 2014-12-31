@@ -7,7 +7,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 <head>
 
 
-<title>Template</title>
+<title>Buy Sell App </title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
@@ -15,27 +15,8 @@ Released for free under a Creative Commons Attribution 3.0 License
 <script type="text/javascript" src="js/georgia.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
 <script type="text/javascript" src="js/angular1.2.min.js"></script>
-<script type="text/javascript" src="js/subCategory.js"></script>
-<script>
-function getUrlParameter(sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
-        {
-            return sParameterName[1];
-        }
-    }
-} 
-var tech = getUrlParameter('id');
-function categoryController($scope,$http) {
-    $http.post("http://localhost:8080/buysellapp/resources/category/sub-categories?category="+tech)
-    .success(function(response) {$scope.subcategorys = response;});
-}
-</script>
+ <script type="text/javascript" src="js/subCategory.js"></script> 
+
 <!-- CuFon ends -->
 <style>
 table.categoriesTable tr td{
@@ -80,7 +61,7 @@ width: 116px;
 
 <ul>
   <li ng-repeat="subcategory in subcategorys">
-    {{subcategory}}
+    <a href="showadv.html?subCategory={{subcategory}}&category={{category}}">{{subcategory}}</a>
   </li>
 </ul>
 

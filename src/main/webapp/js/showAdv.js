@@ -15,12 +15,10 @@ function getUrlParameter(sParam)
 function formController($scope,$http) {
 	var base_url = window.location.origin;
 	
-	var title = getUrlParameter('title');
-	if(title == undefined){
-		title="laptop"		
-	}
-	$scope.title = title;
-	var url1 = base_url+"/buysellapp/resources/add/search?search-req="+title;
+	var category = getUrlParameter('category');
+	var subCategory = getUrlParameter('subCategory');
+	
+	var url1 = base_url+"/buysellapp/resources/add/all?category="+category+"&sub-category="+subCategory;
     $http.post(url1).success(function(response) {$scope.adds = response;});
     
     $scope.submit = function() {
