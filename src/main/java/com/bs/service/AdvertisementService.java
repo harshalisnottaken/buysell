@@ -10,6 +10,7 @@ import com.bs.domain.AddKey;
 import com.bs.domain.Advertisement;
 import com.bs.repository.AdvertisementRepository;
 import com.bs.repository.AdvertisementRepositoryCustom;
+import com.bs.util.StringUpperCaseLowerCaseConverter;
 import com.google.common.collect.Lists;
 
 @Service
@@ -27,22 +28,24 @@ public class AdvertisementService {
 	}
 
 	private void enrichAdvertisement(Advertisement advertisement) {
-		String emailIdUpperCase = advertisement.getAddKey().getEmailId().toLowerCase();
-		AddKey addKey = new AddKey(advertisement.getAddKey().getTitle(), emailIdUpperCase);
+		String emailIdLowerCase = StringUpperCaseLowerCaseConverter.convertToLowerCase(advertisement.getAddKey().getEmailId());
+		AddKey addKey = new AddKey();
+		addKey.setEmailId(emailIdLowerCase);
+		addKey.setTitle(advertisement.getAddKey().getTitle());
 		advertisement.setAddKey(addKey);
-		advertisement.setState(advertisement.getState().toUpperCase());
-		advertisement.setCity(advertisement.getCity().toUpperCase());
-		advertisement.setCategory(advertisement.getCategory().toUpperCase());
-		advertisement.setSubCategory(advertisement.getSubCategory().toUpperCase());
+		advertisement.setState(StringUpperCaseLowerCaseConverter.convertToUpperCase(advertisement.getState()));
+		advertisement.setCity(StringUpperCaseLowerCaseConverter.convertToUpperCase(advertisement.getCity()));
+		advertisement.setCategory(StringUpperCaseLowerCaseConverter.convertToUpperCase(advertisement.getCategory()));
+		advertisement.setSubCategory(StringUpperCaseLowerCaseConverter.convertToUpperCase(advertisement.getSubCategory()));
 	}
 
 	public List<Advertisement> getAddsFor(String emailId) {
-		return advertisementRepository.findAll(Lists.newArrayList(emailId.toLowerCase()));
+		return advertisementRepository.findAll(Lists.newArrayList(StringUpperCaseLowerCaseConverter.convertToLowerCase(emailId)));
 	}
 
 	public List<Advertisement> getAddsForCategoryAndSubcategory(
 			String category, String subCategory) {
-		return advertisementRepositoryCustom.getAddsForCategoryAndSubcategory(category,subCategory);
+		return advertisementRepositoryCustom.getAddsForCategoryAndSubcategory(StringUpperCaseLowerCaseConverter.convertToUpperCase(category),StringUpperCaseLowerCaseConverter.convertToUpperCase(subCategory));
 	}
 
 	public Set<Advertisement> searchAllAddsForRequest(String searchReq) {
