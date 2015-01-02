@@ -16,28 +16,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/upload")
+@RequestMapping("/img")
 public class FileUploadController {
 
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
 	public ResponseEntity<?> uploadMultipleFileHandler(
 			@RequestParam("file") MultipartFile[] files) throws IOException {
-
+	
 		List<String> fileNamesList = new ArrayList<String>();
 		for (int i = 0; i < files.length; i++) {
 			MultipartFile file = files[i];
 			byte[] bytes = file.getBytes();
 
-			String rootPath = System.getProperty("catalina.home");
-			File dir = new File(rootPath + File.separator + "tmpFiles");
-			if (!dir.exists())
-				dir.mkdirs();
-
+			String rootPath = System.getProperty("user.dir");
+			File dir = new File(rootPath + "/src/main/webapp/images/");
+			
 			File serverFile = new File(dir.getAbsolutePath() + File.separator
 					+ file.getOriginalFilename());
 			BufferedOutputStream stream = new BufferedOutputStream(
 					new FileOutputStream(serverFile));
-			fileNamesList.add(serverFile.toString());
+			fileNamesList.add("http://localhost:8080/buysellapp/images/"+file.getOriginalFilename());
 			stream.write(bytes);
 			stream.close();
 

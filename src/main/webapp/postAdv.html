@@ -1,4 +1,5 @@
-       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--
 Design by http://www.bluewebtemplates.com
 Released for free under a Creative Commons Attribution 3.0 License
@@ -14,179 +15,212 @@ Released for free under a Creative Commons Attribution 3.0 License
 <script type="text/javascript" src="js/cuf_run.js"></script>
 <script type="text/javascript" src="js/angular1.2.min.js"></script>
 <script type="text/javascript" src="js/postAdd.js"></script>
+<script type="text/javascript" src="js/jquery_1.11.1.js"></script>
+<script type="text/javascript" src="js/image.upload.js"></script>
 
 
 
- 
+
 <!-- CuFon ends -->
 </head>
 <body>
-<div class="main">
-  <div class="header">
-    <div class="header_resize">
-      <div class="logo"><h1><a href="index.html">Buy Sell<br /><small>Your search ends here</small></a></h1></div>
-      <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li class="active"><a href="showadv.html">Show Advertisement</a></li>
-          <li><a href="postAdv.html">Post Advertisement</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <div class="clr"></div>
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
+	<div class="main">
+		<div class="header">
+			<div class="header_resize">
+				<div class="logo">
+					<h1>
+						<a href="index.html">Buy Sell<br /> <small>Your
+								search ends here</small></a>
+					</h1>
+				</div>
+				<div class="menu_nav">
+					<ul>
+						<li class="active"><a href="index.html">Home</a></li>
+						<li class="active"><a href="showadv.html">Show
+								Advertisement</a></li>
+						<li><a href="postAdv.html">Post Advertisement</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+					<div class="clr"></div>
+				</div>
+				<div class="clr"></div>
+			</div>
+		</div>
 
-  <div class="content">
-    <div class="content_resize">
-      <div class="mainbar">
-      <div ng-app="" ng-controller="formController">
-             <form action="#" name="PostAdvertisement" onvalidate>
+		<div class="content">
+			<div class="content_resize">
+				<div class="mainbar">
 
-<table width="100%" bgcolor="99FFFF" align="center">
+					<form id="multipart">
+						<div id="container">
+							Image :<input type="file" name="file" />
+						</div>
+						<!-- 						<input type="button" value="Add image" id="more"><br> -->
+						<input type="submit" value="Upload">
+					</form>
 
-<tr>
-<td colspan=2>
-<center><font size=4><b>Post an Adertisement</b></font></center>
-</td>
-</tr>
+					<div ng-app="" ng-controller="formController">
+						<form action="#" name="PostAdvertisement" onvalidate>
 
-<tr>
-<td>Title</td>
-<td><input type=text name=title id="title" size="30" ng-model="adv.addKey.title"/></td>
+							<table width="100%" bgcolor="99FFFF" align="center">
 
-</tr>
+								<tr>
+									<td colspan=2>
+										<center>
+											<font size=4><b>Post an Adertisement</b></font>
+										</center>
+									</td>
+								</tr>
 
-<!-- <tr><td>Category</td><td> <select id="category" ng-model="adv.category" ng-options="category for (category, subCategory) in categories">
+								<tr>
+									<td>Title</td>
+									<td><input type=text name=title id="title" size="30"
+										ng-model="adv.addKey.title" /></td>
+
+								</tr>
+
+								<!-- <tr><td>Category</td><td> <select id="category" ng-model="adv.category" ng-options="category for (category, subCategory) in categories">
                     <option value=''>Select</option>
                 </select></td></tr>
 <tr><td>Sub Category</td><td><select id="subCategory"  ng-model="adv.subCategory" ng-options="subCategory for subCategory in adv.category"><option value=''>Select</option></select></td></tr>
  -->
- <tr>
-<td>Category</td>
-<td><select name="category" ng-model="adv.category">
-<option value="-1" selected>select..</option>
-<option value="KITCHEN">KITCHEN</option>
-<option value="MOBILES">MOBILES</option>
-<option value="ELECTRONICS">ELECTRONICS</option>
-<option value="VEHICLES">VEHICLES</option>
-<option value="FURNITURE">FURNITURE</option>
-<option value="ANIMALS">ANIMALS</option>
-<option value="BOOKS">BOOKS</option>
-<option value="FASHION ">FASHION</option>
-<option value="KIDSPRODUCTS">KIDS PRODUCTS</option>
-<option value="SERVICES">SERVICES</option>
-<option value="JOBS">JOBS</option>
-<option value="REAL ESTATE ">REAL ESTATE</option>
-<option value="HOME NEEDS ">HOME NEEDS</option>
-</select></td>
-</tr>
+								<tr>
+									<td>Category</td>
+									<td><select name="category" ng-model="adv.category">
+											<option value="-1" selected>select..</option>
+											<option value="KITCHEN">KITCHEN</option>
+											<option value="MOBILES">MOBILES</option>
+											<option value="ELECTRONICS">ELECTRONICS</option>
+											<option value="VEHICLES">VEHICLES</option>
+											<option value="FURNITURE">FURNITURE</option>
+											<option value="ANIMALS">ANIMALS</option>
+											<option value="BOOKS">BOOKS</option>
+											<option value="FASHION ">FASHION</option>
+											<option value="KIDSPRODUCTS">KIDS PRODUCTS</option>
+											<option value="SERVICES">SERVICES</option>
+											<option value="JOBS">JOBS</option>
+											<option value="REAL ESTATE ">REAL ESTATE</option>
+											<option value="HOME NEEDS ">HOME NEEDS</option>
+									</select></td>
+								</tr>
 
-<tr>
-<td>Sub Category</td>
-<td><select name="subcategory" ng-model="adv.subCategory">
-<option value="-1" selected>select..</option>
-<option value="laptops">Laptops</option>
-<option value="mobile">Mobile</option>
-<option value="tablet">Tablet</option>
-<option value="fasion">Fashoin</option>
-</select></td>
-</tr>
+								<tr>
+									<td>Sub Category</td>
+									<td><select name="subcategory" ng-model="adv.subCategory">
+											<option value="-1" selected>select..</option>
+											<option value="laptops">Laptops</option>
+											<option value="mobile">Mobile</option>
+											<option value="tablet">Tablet</option>
+											<option value="fasion">Fashoin</option>
+									</select></td>
+								</tr>
 
 
-<tr>
-<td>Description</td>
-<td><textarea row="3" name="description" id="description"size="30"  ng-model="adv.description"></textarea></td>
-</tr>
+								<tr>
+									<td>Description</td>
+									<td><textarea row="3" name="description" id="description"
+											size="30" ng-model="adv.description"></textarea></td>
+								</tr>
 
-<tr>
-<td>Upload Image</td>
-<td> <input type="file" name="pic" accept="image/*" ng-model="adv.photo"/></td>
-<td><input type="button" value="Upload" name="upload"/></td>
-</tr>
+								
+									<input type="hidden" name="pic" 
+										id="image"/>
+								
+								<tr>
+									<td>Images :</td>
+									<td><img id="imgUpload" src="images/default.jpg"
+										width="100px" height="100px"></img></td>
+								</tr>
 
-<!-- <tr><td>Country</td><td> <select id="country" ng-model="states" ng-options="country for (country, states) in countries">
+								<!-- <tr><td>Country</td><td> <select id="country" ng-model="states" ng-options="country for (country, states) in countries">
                     <option value=''>Select</option>
                 </select></td></tr>
 <tr><td>State</td><td><select id="state"  ng-model="adv.state" ng-options="state for (state,city) in states"><option value=''>Select</option></select></td></tr>
 <tr><td>City</td><td> <select id="city"  ng-model="adv.city" ng-options="city for city in adv.state"><option value=''>Select</option></select>        </td></tr> -->
- 
-<tr>
-<td>State</td>
-<td><select name="state" ng-model="adv.state">
-<option value="-1" selected>select..</option>
-<option value="Maharashtra">Maharashtra</option>
-<option value="Delhi">Delhi</option>
-<option value="Gujrat">Gujrat</option>
-<option value="Madhyapardesh">Madhyapardesh</option>
-</select></td>
-</tr>
 
-<tr>
-<td>City</td>
-<td><select name="city" ng-model="adv.city">
-<option value="-1" selected>select..</option>
-<option value="pune">pune</option>
-<option value="mumbai">mumbai</option>
-<option value="nagpur">nagpur</option>
-<option value="nagar">nagar</option>
-</select></td>
-</tr>
+								<tr>
+									<td>State</td>
+									<td><select name="state" ng-model="adv.state">
+											<option value="-1" selected>select..</option>
+											<option value="Maharashtra">Maharashtra</option>
+											<option value="Delhi">Delhi</option>
+											<option value="Gujrat">Gujrat</option>
+											<option value="Madhyapardesh">Madhyapardesh</option>
+									</select></td>
+								</tr>
+
+								<tr>
+									<td>City</td>
+									<td><select name="city" ng-model="adv.city">
+											<option value="-1" selected>select..</option>
+											<option value="pune">pune</option>
+											<option value="mumbai">mumbai</option>
+											<option value="nagpur">nagpur</option>
+											<option value="nagar">nagar</option>
+									</select></td>
+								</tr>
 
 
 
-<tr>
-<td>Price</td>
-<td><input type="text" name="price" id="price" size="30" ng-model="adv.price"/>
-<input type="checkbox" name="negotiable" value="yes"/>Negotiable<br></td>
-</tr>
+								<tr>
+									<td>Price</td>
+									<td><input type="text" name="price" id="price" size="30"
+										ng-model="adv.price" /> <input type="checkbox"
+										name="negotiable" value="yes" />Negotiable<br></td>
+								</tr>
 
-<tr>
-<td>Mobile no.</td>
-<td><input type="text" name="mobileno"id="mobileno" size="30" ng-model="adv.mobileNumber"/>
-<input type="checkbox" name="avlonWatApp" value="yes"/>Available on WatzApp<br></br></td>
-</tr>
+								<tr>
+									<td>Mobile no.</td>
+									<td><input type="text" name="mobileno" id="mobileno"
+										size="30" ng-model="adv.mobileNumber" /> <input
+										type="checkbox" name="avlonWatApp" value="yes" />Available on
+										WatzApp<br></br></td>
+								</tr>
 
-<tr>
-<td>E-mail.</td>
-<td><input type="text" name="email"id="email" size="30" ng-model="adv.addKey.emailId" /></td>
-</tr>
+								<tr>
+									<td>E-mail.</td>
+									<td><input type="text" name="email" id="email" size="30"
+										ng-model="adv.addKey.emailId" /></td>
+								</tr>
 
-<tr>
-<td><input type="button" ng-click="submit()" value=PostAdevertisement name="post" align="center"/></td>
-</tr>
-</table>
-</form>
+								<tr>
+									<td><input type="button" ng-click="submit()"
+										value=PostAdevertisement name="post" align="center" /></td>
+								</tr>
+							</table>
+						</form>
 
-</div>
-      </div>
-     </div>
-     </div>
-     
-      <div class="footer">
-    <div class="footer_resize">
-      <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com">Website Templates</a></p>
-      <ul class="fmenu">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </ul>
-      <div class="clr"></div>
-    </div>
-  </div>
-     </div>
-     
-     
-     
-     
-     
-     
-    
-     
-     
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="footer_resize">
+				<p class="lf">
+					&copy; Copyright MyWebSite. Designed by Blue <a
+						href="http://www.bluewebtemplates.com">Website Templates</a>
+				</p>
+				<ul class="fmenu">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="support.html">Support</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="contact.html">Contacts</a></li>
+				</ul>
+				<div class="clr"></div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

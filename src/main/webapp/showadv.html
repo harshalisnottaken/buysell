@@ -85,7 +85,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 							</tr>
 						</table> -->
 						<ul>
-							<li ng-repeat="add in adds">{{ add.addKey.title }} </br> {{add.category}} </br>{{ add.subCategory}} </br>{{ add.price}}</br>{{ add.description}}</br>{{ add.addKey.emailId}}</br>{{ add.mobileNumber}}</br>{{ add.state}}</br>{{ add.city}}
+							<li ng-repeat="add in adds"><img src="{{ add.photo }}" width="100px" height="100px"/><br>{{ add.addKey.title }} </br> {{add.category}} </br>{{ add.subCategory}} </br>{{ add.price}}</br>{{ add.description}}</br>{{ add.addKey.emailId}}</br>{{ add.mobileNumber}}</br>{{ add.state}}</br>{{ add.city}}
 							</li>
 						</ul>
 
