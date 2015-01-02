@@ -3,6 +3,7 @@ package com.bs.service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,7 +50,7 @@ public class AdvertisementService {
 		return advertisementRepositoryCustom.getAddsForCategoryAndSubcategory(StringUpperCaseLowerCaseConverter.convertToUpperCase(category),StringUpperCaseLowerCaseConverter.convertToUpperCase(subCategory));
 	}
 
-	public List<Advertisement> searchAllAddsForRequest(String searchReq) {
+	public Set<Advertisement> searchAllAddsForRequest(String searchReq) {
 		String[] splitStr = StringUpperCaseLowerCaseConverter.convertToLowerCase(searchReq).split("\\s+");
 		return advertisementRepositoryCustom.searchAllAddsForRequest(new HashSet<String>(Arrays.asList(splitStr)));
 	}
