@@ -9,7 +9,6 @@ function formController ($scope,$http) {
     var base_url = window.location.origin;
     $scope.submit = function() {
     	if($scope.adv !== undefined){
-        alert("data entered!!!!"+$scope.adv.category);
 $http.post(base_url+'/buysellapp/resources/add/post ', $scope.adv) 
 
 window.location.href = base_url+"/buysellapp/myAdd.html?emailId="+forceUnicodeEncoding($scope.adv.addKey.emailId);
