@@ -35,7 +35,7 @@ public class FileUploadController {
 					+ file.getOriginalFilename());
 			BufferedOutputStream stream = new BufferedOutputStream(
 					new FileOutputStream(serverFile));
-			fileNamesList.add("http://localhost:8080/buysellapp/images/"+file.getOriginalFilename());
+			fileNamesList.add("http://localhost:8086/buysellapp/images/"+file.getOriginalFilename());
 			stream.write(bytes);
 			stream.close();
 
